@@ -1,84 +1,45 @@
-// ** Next Import
-import Link from "next/link";
-
-// ** MUI Components
-import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-
-// ** Layout Import
+import React from "react";
 import BlankLayout from "src/@core/layouts/BlankLayout";
+import Image1 from "src/assets/images/bg_1.jpg";
+import Image2 from "src/assets/images/main-logo.jpeg";
+import { useRouter } from "next/router";
 
-// ** Demo Imports
-import FooterIllustrations from "src/views/pages/misc/FooterIllustrations";
-
-// ** Styled Components
-const BoxWrapper = styled(Box)(({ theme }) => ({
-  [theme.breakpoints.down("md")]: {
-    width: "90vw",
-  },
-}));
-
-const Img = styled("img")(({ theme }) => ({
-  marginBottom: theme.spacing(10),
-  [theme.breakpoints.down("lg")]: {
-    height: 450,
-    marginTop: theme.spacing(10),
-  },
-  [theme.breakpoints.down("md")]: {
-    height: 400,
-  },
-  [theme.breakpoints.up("lg")]: {
-    marginTop: theme.spacing(13),
-  },
-}));
-
-const TreeIllustration = styled("img")(({ theme }) => ({
-  left: 0,
-  bottom: "5rem",
-  position: "absolute",
-  [theme.breakpoints.down("lg")]: {
-    bottom: 0,
-  },
-}));
-
-const Error404 = () => {
+const Demo = () => {
+  const router = useRouter();
   return (
-    <Box className="content-center">
-      <Box
-        sx={{
-          p: 5,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <BoxWrapper>
-          <Typography variant="h2">Welcome to Event Management</Typography>
-          <Link passHref href="/register">
-            <Button
-              component="a"
-              variant="contained"
-              sx={{ marginTop: "50px" }}
-            >
-              Register
-            </Button>
-          </Link>
-        </BoxWrapper>
-        <Img
-          height="487"
-          alt="error-illustration"
-          src="/images/pages/404.png"
-        />
-      </Box>
-      <FooterIllustrations
-        image={<TreeIllustration alt="tree" src="/images/pages/tree.png" />}
-      />
-    </Box>
+    <div class="d-lg-flex half">
+      <div
+        class="bg order-1 order-md-2"
+        style={{ backgroundImage: `url(${Image1.src})` }}
+      ></div>
+      <div class="contents order-2 order-md-1">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7">
+              <a href="#">
+                <img id="logo" src={Image2.src} />
+              </a>
+
+              <input
+                type="submit"
+                onClick={() => router.push("/register")}
+                value="Register for Event"
+                class="btn btn-block btn-primary"
+              />
+              <input
+                type="submit"
+                onClick={() => router.push("/auth/login")}
+                value="Log In"
+                class="btn btn-block btn-primary"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
-Error404.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
 
-export default Error404;
+Demo.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
+
+export default Demo;

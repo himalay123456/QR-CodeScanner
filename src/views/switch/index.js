@@ -53,7 +53,7 @@ const IOSSwitch = styled(props => <Switch focusVisibleClassName='.Mui-focusVisib
 )
 
 const SwitchComponent = ({active}) => {
-  return <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked={active} />} label='' />
+  return <FormControlLabel disabled control={<IOSSwitch sx={{ m: 1 }} defaultChecked={active} />} label='' />
 }
 
 export default SwitchComponent

@@ -249,7 +249,6 @@ const RegisterPage = () => {
                   sx={{ marginBottom: 4 }}
                 />
                 <TextField
-                  autoFocus
                   name="phone"
                   fullWidth
                   id="phone"
@@ -264,7 +263,6 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.organisation}
-                  autoFocus
                   fullWidth
                   id="organisation"
                   label="Organisation Name"

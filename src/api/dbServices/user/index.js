@@ -18,6 +18,20 @@ module.exports = {
       }
     );
   },
+  disApproveUser: async (id) => {
+    return await UserModel.findOneAndUpdate(
+      {
+        _id: id,
+      },
+      {
+        active: false,
+      },
+      {
+        new: true,
+        upsert: false,
+      }
+    );
+  },
   userDetails: async (id) => {
     return await UserModel.findById(id);
   },

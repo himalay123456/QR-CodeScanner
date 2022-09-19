@@ -32,6 +32,9 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 // ** Global css styles
 import "../../styles/globals.css";
+import "src/assets/fonts/icomoon/style.css";
+import "src/assets/css/bootstrap.min.css";
+import "src/assets/css/style.css";
 
 const clientSideEmotionCache = createEmotionCache({
   key: "css",

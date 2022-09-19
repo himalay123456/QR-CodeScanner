@@ -2,7 +2,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Chip } from "@mui/material";
 import Router, { useRouter } from "next/router";
 import moment from "moment";
 
@@ -32,21 +32,27 @@ const UserTable = ({ data }) => {
     phone,
     organisation,
     createdAt,
-    id
+    id,
+    active
   ) => {
-    return { status, name, email, phone, organisation, createdAt, id };
+    return { status, name, email, phone, organisation, createdAt, id, active };
   };
 
   const generateData = () => {
     return data.user.map((item) =>
       createData(
-        <SwitchComponent active={item.active} />,
+        item.active ? (
+          <Chip label="Verified" color="success" />
+        ) : (
+          <Chip label="Pending" color="info" />
+        ),
         item.name,
         item.email,
         item.phone,
         item.organisation,
         moment(item.createdAt).format("ll"),
-        item._id
+        item._id,
+        item.active
       )
     );
   };
@@ -60,11 +66,17 @@ const UserTable = ({ data }) => {
     createdAt: "Created At",
   };
 
-  const onAddButtonClick = async (id) => {
+  const onAddButtonClick = async (id, active) => {
     try {
-      const response = await axiosMain.get(`/api/admin/approveUser/?id=${id}`);
-      if (response) {
+      let response;
+      if (!active) {
+        response = await axiosMain.get(`/api/admin/approveUser/?id=${id}`);
         toast.success("User verified successfully!");
+      } else {
+        response = await axiosMain.get(`/api/admin/disApproveUser/?id=${id}`);
+        toast.success("User unverified successfully!");
+      }
+      if (response) {
         window.location.reload();
       }
     } catch (err) {

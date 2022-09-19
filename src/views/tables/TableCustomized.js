@@ -14,6 +14,7 @@ import Edit from "mdi-material-ui/LeadPencil";
 import Delete from "mdi-material-ui/Delete";
 import Add from "mdi-material-ui/BriefcasePlus";
 import AddTaskIcon from "mdi-material-ui/AccountPlus";
+import AccountCheck from "mdi-material-ui/AccountCheck";
 import Router, { useRouter } from "next/router";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -95,10 +96,24 @@ const TableCustomized = ({ TableHeader, rows, actions }) => {
                       />
                     </Tooltip>
                   )}
-                  {actions.add && (
-                    <Tooltip title="Approve User">
+                  {actions.add && !row.active && (
+                    <Tooltip title="Verify User">
                       <AddTaskIcon
-                        onClick={() => actions.onAddButtonClick(row.id)}
+                        style={{ color: "#007bff" }}
+                        onClick={() =>
+                          actions.onAddButtonClick(row.id, row.active)
+                        }
+                        sx={{ marginRight: "15px", cursor: "pointer" }}
+                      />
+                    </Tooltip>
+                  )}
+                  {actions.add && row.active && (
+                    <Tooltip title="Unverify User">
+                      <AccountCheck
+                        style={{ color: "green" }}
+                        onClick={() =>
+                          actions.onAddButtonClick(row.id, row.active)
+                        }
                         sx={{ marginRight: "15px", cursor: "pointer" }}
                       />
                     </Tooltip>
