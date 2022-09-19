@@ -116,7 +116,7 @@ const RegisterPage = () => {
       }
     } catch (err) {
       console.log(err);
-      toast.error(err.message);
+      toast.error(err.response ? err.response.data.error : err.message);
     }
     // if()
   };
@@ -190,9 +190,9 @@ const RegisterPage = () => {
           <Formik
             initialValues={{
               email: "",
-              name: "Himalay",
-              phone: "8789202542",
-              organisation: "Google",
+              name: "",
+              phone: "",
+              organisation: "",
             }}
             validate={(values) => {
               const errors = {};
