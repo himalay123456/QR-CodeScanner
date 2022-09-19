@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import { verify } from "jsonwebtoken";
+// import verifyAdmin from "src/api/utils/verifyAdmin";
 
-const secret = "admin@123";
-
-export default function middleware(req) {
+export default async function middleware(req) {
   const { cookies } = req;
   const jwt = cookies.access_token;
 
@@ -14,7 +12,7 @@ export default function middleware(req) {
       return NextResponse.redirect("/auth/login");
     }
     try {
-      verify(jwt, secret);
+      // await verifyAdmin(jwt);
       return NextResponse.next();
     } catch (err) {
       return NextResponse.redirect("/auth/login");
