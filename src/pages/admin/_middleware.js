@@ -8,7 +8,7 @@ export default async function middleware(req) {
   const url = req.url;
 
   if (url.includes("/admin")) {
-    if (jwt === "undefined") {
+    if (jwt === undefined) {
       return NextResponse.redirect("/auth/login");
     }
     try {
