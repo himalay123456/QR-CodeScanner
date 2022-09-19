@@ -8,7 +8,7 @@ const Verify = ({ data }) => {
   const { name, email, phone, organisation, qrCode } = data || "";
   return (
     <>
-      <div class="id-card-tag"></div>
+      {/* <div class="id-card-tag"></div> */}
       <div class="id-card-tag-strip"></div>
       <div class="id-card-hook"></div>
       <div class="id-card-holder">
