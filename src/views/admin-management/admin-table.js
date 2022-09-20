@@ -85,12 +85,18 @@ const UserTable = ({ data }) => {
     }
   };
 
+  const onPrintButtonClick = async (id) => {
+    router.push(`/admin/verify-user/${id}`);
+  };
+
   const actions = {
     view: false,
     edit: false,
     delete: false,
     add: true,
+    print: true,
     onAddButtonClick,
+    onPrintButtonClick,
   };
 
   return (

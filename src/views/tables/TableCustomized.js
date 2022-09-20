@@ -15,6 +15,7 @@ import Delete from "mdi-material-ui/Delete";
 import Add from "mdi-material-ui/BriefcasePlus";
 import AddTaskIcon from "mdi-material-ui/AccountPlus";
 import AccountCheck from "mdi-material-ui/AccountCheck";
+import Printer from "mdi-material-ui/Printer";
 import Router, { useRouter } from "next/router";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -114,6 +115,14 @@ const TableCustomized = ({ TableHeader, rows, actions }) => {
                         onClick={() =>
                           actions.onAddButtonClick(row.id, row.active)
                         }
+                        sx={{ marginRight: "15px", cursor: "pointer" }}
+                      />
+                    </Tooltip>
+                  )}
+                  {actions.print && (
+                    <Tooltip title="Print">
+                      <Printer
+                        onClick={() => actions.onPrintButtonClick(row.id)}
                         sx={{ marginRight: "15px", cursor: "pointer" }}
                       />
                     </Tooltip>

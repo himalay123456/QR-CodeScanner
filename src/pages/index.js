@@ -7,30 +7,32 @@ import { useRouter } from "next/router";
 const Demo = () => {
   const router = useRouter();
   return (
-    <div class="d-lg-flex half">
+    <div className="d-lg-flex half">
       <div
-        class="bg order-1 order-md-2"
+        className="bg order-1 order-md-2"
         style={{ backgroundImage: `url(${Image1.src})` }}
       ></div>
-      <div class="contents order-2 order-md-1">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7">
+      <div className="contents order-2 order-md-1">
+        <div className="container">
+          <div className="row align-items-center justify-content-center">
+            <div className="col-md-7u">
               <a href="#">
                 <img id="logo" src={Image2.src} />
               </a>
 
               <input
                 type="submit"
+                style={{ backgroundColor: "#2c8c45", border: "none" }}
                 onClick={() => router.push("/register")}
                 value="Register for Event"
-                class="btn btn-block btn-primary"
+                className="btn btn-block btn-primary"
               />
               <input
                 type="submit"
+                style={{ backgroundColor: "#2c8c45", border: "none" }}
                 onClick={() => router.push("/auth/login")}
                 value="Log In"
-                class="btn btn-block btn-primary"
+                className="btn btn-block btn-primary"
               />
             </div>
           </div>

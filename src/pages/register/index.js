@@ -103,7 +103,7 @@ const RegisterPage = () => {
     try {
       const response = await axiosMain.post(
         "/api/events/register",
-        { ...requestBody, files },
+        { ...requestBody },
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -156,7 +156,7 @@ const RegisterPage = () => {
               User Registration
             </Typography>
           </Box>
-          <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}>
+          {/* <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <ImgStyled src={imgSrc} alt="Profile Pic" />
               <Box>
@@ -186,7 +186,7 @@ const RegisterPage = () => {
                 </Typography>
               </Box>
             </Box>
-          </Grid>
+          </Grid> */}
           <Formik
             initialValues={{
               email: "",
