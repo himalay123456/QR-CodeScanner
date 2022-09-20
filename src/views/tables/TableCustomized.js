@@ -98,7 +98,7 @@ const TableCustomized = ({ TableHeader, rows, actions }) => {
                     </Tooltip>
                   )}
                   {actions.add && !row.active && (
-                    <Tooltip title="Verify User">
+                    <Tooltip title="Add Participant">
                       <AddTaskIcon
                         style={{ color: "#007bff" }}
                         onClick={() =>
@@ -109,7 +109,7 @@ const TableCustomized = ({ TableHeader, rows, actions }) => {
                     </Tooltip>
                   )}
                   {actions.add && row.active && (
-                    <Tooltip title="Unverify User">
+                    <Tooltip title="Remove Participant">
                       <AccountCheck
                         style={{ color: "green" }}
                         onClick={() =>

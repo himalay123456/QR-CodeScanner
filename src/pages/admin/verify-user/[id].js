@@ -40,7 +40,7 @@ const Verify = ({ data }) => {
             <h5 style={{ fontSize: "16px" }}>Phone: {phone}</h5>
             <h5 style={{ fontSize: "16px" }}>Organisation: {organisation}</h5>
             <h5 style={{ fontSize: "16px" }}>
-              Status: {active ? "Verified" : "Not Verified"}
+              Status: {active ? "Participant" : "Pending"}
             </h5>
             {qrCode && (
               <div class="qr-code">

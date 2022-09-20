@@ -42,7 +42,7 @@ const UserTable = ({ data }) => {
     return data.user.map((item) =>
       createData(
         item.active ? (
-          <Chip label="Verified" color="success" />
+          <Chip label="Participant" color="success" />
         ) : (
           <Chip label="Pending" color="info" />
         ),
@@ -71,10 +71,10 @@ const UserTable = ({ data }) => {
       let response;
       if (!active) {
         response = await axiosMain.get(`/api/admin/approveUser/?id=${id}`);
-        toast.success("User verified successfully!");
+        toast.success("Participant added successfully!");
       } else {
         response = await axiosMain.get(`/api/admin/disApproveUser/?id=${id}`);
-        toast.success("User unverified successfully!");
+        toast.success("Participant removed successfully!");
       }
       if (response) {
         window.location.reload();
